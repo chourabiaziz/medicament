@@ -1,4 +1,4 @@
-package tn.esprit.controllers;
+package tn.esprit.controllers.Formation;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;

@@ -18,7 +18,7 @@ public class MainFx extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/addMedicament.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Formation/IndexFormation.fxml"));
         try {
             Parent root = loader.load();
             Scene scene = new Scene(root );

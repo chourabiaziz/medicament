@@ -1,18 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.control.cell.PropertyValueFactory?>
 
-<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="tn.esprit.controllers.Formation.IndexFormationController"
-            style="-fx-background-color: #f5f7fa;">
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Pagination?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane style="-fx-background-color: #f5f7fa;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.Formation.IndexFormationController">
 
     <top>
-        <HBox style="-fx-background-color: #4a6baf; -fx-padding: 15;" alignment="CENTER">
-            <Label text="Formation Management" style="-fx-text-fill: white; -fx-font-size: 20; -fx-font-weight: bold;">
+        <HBox alignment="CENTER" style="-fx-background-color: #4a6baf; -fx-padding: 15;">
+            <Label style="-fx-text-fill: white; -fx-font-size: 20; -fx-font-weight: bold;" text="Formation Management">
                 <graphic>
                     <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                         <Image url="https://cdn-icons-png.flaticon.com/512/3976/3976626.png" />
@@ -20,31 +26,27 @@
                 </graphic>
             </Label>
             <Region HBox.hgrow="ALWAYS" />
-            <Button fx:id="refreshBtn" style="-fx-background-color: transparent; -fx-text-fill: white;"
-                    onAction="#refreshList" text="Refresh">
-                <graphic>
-                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                        <Image url="https://cdn-icons-png.flaticon.com/512/189/189687.png" />
-                    </ImageView>
-                </graphic>
-            </Button>
         </HBox>
     </top>
 
     <center>
         <VBox spacing="10" style="-fx-padding: 15;">
-            <HBox spacing="10" alignment="CENTER_LEFT">
+            <HBox alignment="CENTER_LEFT" spacing="10">
                 <TextField fx:id="searchField" promptText="Search formations..." style="-fx-pref-width: 300;" />
-                <Button text="Search" style="-fx-background-color: #4a6baf; -fx-text-fill: white;" onAction="#handleSearch" />
+                <Button onAction="#handleSearch" style="-fx-background-color: #4a6baf; -fx-text-fill: white;" text="Search" />
                 <Region HBox.hgrow="ALWAYS" />
-                <Button fx:id="addBtn" text="Add New Formation" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold;" onAction="#goToAdd" />
+                <Button fx:id="addBtn" onAction="#goToAdd" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold;" text="Add New Formation" />
             </HBox>
 
-            <!-- Scrollable Card List -->
-            <ScrollPane fx:id="scrollPane" fitToWidth="true" fitToHeight="true" style="-fx-background-color: transparent;">
-                <VBox fx:id="formationListContainer" spacing="10" style="-fx-padding: 10;">
-                    <!-- The cards will be dynamically added here -->
-                </VBox>
+            <!-- GridPane for cards -->
+            <ScrollPane fitToWidth="true" style="-fx-background-color: transparent;">
+                <GridPane fx:id="formationGridContainer" hgap="20" style="-fx-padding: 10;" vgap="20">
+                    <columnConstraints>
+                        <ColumnConstraints percentWidth="33" />
+                        <ColumnConstraints percentWidth="33" />
+                        <ColumnConstraints percentWidth="33" />
+                    </columnConstraints>
+                </GridPane>
             </ScrollPane>
 
             <!-- Pagination control -->
@@ -53,8 +55,8 @@
     </center>
 
     <bottom>
-        <HBox style="-fx-background-color: #e9e9e9; -fx-padding: 10;" alignment="CENTER">
-            <Label text="© 2025 Formation Management System" style="-fx-text-fill: #666;" />
+        <HBox alignment="CENTER" style="-fx-background-color: #e9e9e9; -fx-padding: 10;">
+            <Label style="-fx-text-fill: #666;" text="© 2025 Formation Management System" />
         </HBox>
     </bottom>
 </BorderPane>

@@ -23,8 +23,6 @@
                     <ColumnConstraints hgrow="ALWAYS" />
                 </columnConstraints>
 
-                <Label text="ID:" GridPane.rowIndex="0" GridPane.columnIndex="0" />
-                <TextField fx:id="idField" editable="false" GridPane.rowIndex="0" GridPane.columnIndex="1" />
 
                 <Label text="Title:" GridPane.rowIndex="1" GridPane.columnIndex="0" />
                 <TextField fx:id="titleField" GridPane.rowIndex="1" GridPane.columnIndex="1" />

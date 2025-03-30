@@ -1,4 +1,4 @@
-package tn.esprit.controllers;
+package tn.esprit.controllers.Formation;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -36,8 +36,7 @@ public class EditFormationController {
 
     private void populateForm() {
         if (currentFormation != null) {
-            idField.setText(String.valueOf(currentFormation.getId()));
-            titleField.setText(currentFormation.getTitre());
+             titleField.setText(currentFormation.getTitre());
             descriptionField.setText(currentFormation.getDescription());
             difficultyCombo.setValue(currentFormation.getDifficulte());
             ratingSlider.setValue(currentFormation.getNote());
