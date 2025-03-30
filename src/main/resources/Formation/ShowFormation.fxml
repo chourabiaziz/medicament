@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.Formation.ShowFormationController">
+
+    <VBox spacing="15" alignment="CENTER" style="-fx-padding: 20; -fx-background-color: #f5f7fa;">
+        <Label fx:id="titleLabel" style="-fx-font-size: 20; -fx-font-weight: bold;" />
+        <Label fx:id="descriptionLabel" style="-fx-font-size: 16; -fx-text-fill: #555;" />
+        <Label fx:id="difficultyLabel" style="-fx-font-size: 16; -fx-text-fill: #777;" />
+        <Label fx:id="noteLabel" style="-fx-font-size: 16; -fx-text-fill: #777;" />
+
+        <!-- Video Display -->
+        <VBox fx:id="videoContainer" style="-fx-background-color: #000; -fx-padding: 10;" />
+
+        <Button text="Back to List" onAction="#goBack" style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+    </VBox>
+
+</AnchorPane>

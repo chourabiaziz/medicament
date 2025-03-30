@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="tn.esprit.controllers.Formation.EditFormationController"
+            style="-fx-background-color: #f5f7fa;">
+
+    <top>
+        <HBox style="-fx-background-color: #4a6baf; -fx-padding: 15;" alignment="CENTER">
+            <Label text="Edit Formation" style="-fx-text-fill: white; -fx-font-size: 18; -fx-font-weight: bold;" />
+        </HBox>
+    </top>
+
+    <center>
+        <VBox spacing="15" style="-fx-padding: 20;" alignment="TOP_CENTER">
+            <GridPane hgap="10" vgap="10">
+                <columnConstraints>
+                    <ColumnConstraints halignment="RIGHT" hgrow="NEVER" prefWidth="150" />
+                    <ColumnConstraints hgrow="ALWAYS" />
+                </columnConstraints>
+
+                <Label text="ID:" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+                <TextField fx:id="idField" editable="false" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+
+                <Label text="Title:" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+                <TextField fx:id="titleField" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+
+                <Label text="Description:" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+                <TextArea fx:id="descriptionField" wrapText="true" prefRowCount="3" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+
+                <Label text="Difficulty:" GridPane.rowIndex="3" GridPane.columnIndex="0" />
+                <ComboBox fx:id="difficultyCombo" GridPane.rowIndex="3" GridPane.columnIndex="1" />
+
+                <Label text="Rating (1-5):" GridPane.rowIndex="4" GridPane.columnIndex="0" />
+                <Slider fx:id="ratingSlider" min="1" max="5" majorTickUnit="1" minorTickCount="0"
+                        snapToTicks="true" showTickMarks="true" showTickLabels="true"
+                        GridPane.rowIndex="4" GridPane.columnIndex="1" />
+
+                <Label text="Video URL:" GridPane.rowIndex="5" GridPane.columnIndex="0" />
+                <TextField fx:id="videoField" GridPane.rowIndex="5" GridPane.columnIndex="1" />
+
+                <Label text="Visible:" GridPane.rowIndex="6" GridPane.columnIndex="0" />
+                <CheckBox fx:id="visibleCheck" GridPane.rowIndex="6" GridPane.columnIndex="1" />
+            </GridPane>
+
+            <HBox spacing="15" alignment="CENTER">
+                <Button fx:id="updateBtn" text="Update" style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-pref-width: 100;" />
+                <Button fx:id="cancelBtn" text="Cancel" style="-fx-background-color: #F44336; -fx-text-fill: white; -fx-pref-width: 100;" />
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>
