@@ -11,6 +11,8 @@ import java.io.File;
 
 public class AddFormationController {
 
+
+    
     @FXML private TextField titleField;
     @FXML private TextArea descriptionField;
     @FXML private ComboBox<String> difficultyCombo;
