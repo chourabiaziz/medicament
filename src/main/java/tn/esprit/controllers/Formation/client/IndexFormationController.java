@@ -1,4 +1,4 @@
-package tn.esprit.controllers.Formation;
+package tn.esprit.controllers.Formation.client;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -11,8 +11,11 @@ import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.*;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import tn.esprit.controllers.Formation.EditFormationController;
 import tn.esprit.entities.Formation;
 import tn.esprit.navigation.NavigationUtils;
 import tn.esprit.services.FormationService;
@@ -30,7 +33,6 @@ public class IndexFormationController {
     @FXML private GridPane formationGridContainer;
     @FXML private Pagination pagination;
     @FXML private TextField searchField;
-    @FXML private Button addBtn;
 
     @FXML
     public void initialize() {
@@ -95,7 +97,7 @@ public class IndexFormationController {
         difficultyLabel.setStyle("-fx-font-size: 14px; -fx-text-fill: #777;");
 
         // View Details Button
-        Button detailButton = new Button("View Details");
+        Button detailButton = new Button("Start");
         detailButton.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white;");
         detailButton.setOnAction(event -> goToDetails(formation));
 
@@ -103,17 +105,10 @@ public class IndexFormationController {
         HBox buttonBox = new HBox(10);
         buttonBox.setStyle("-fx-alignment: center; -fx-padding: 5;");
 
-        // Edit Button
-        Button editButton = new Button("Edit");
-        editButton.setStyle("-fx-background-color: #FFA500; -fx-text-fill: white;");
-        editButton.setOnAction(event -> goToEdit(formation));
 
-        // Delete Button
-        Button deleteButton = new Button("Delete");
-        deleteButton.setStyle("-fx-background-color: #FF0000; -fx-text-fill: white;");
-        deleteButton.setOnAction(event -> handleDelete(formation));
 
-        buttonBox.getChildren().addAll(detailButton, editButton, deleteButton);
+
+        buttonBox.getChildren().addAll(detailButton);
         card.getChildren().addAll(titleLabel, descriptionLabel, difficultyLabel, buttonBox);
 
         return card;
@@ -167,7 +162,7 @@ public class IndexFormationController {
 
     public static void goToDetails(Formation formation) {
         try {
-            FXMLLoader loader = new FXMLLoader(NavigationUtils.class.getResource("/Formation/clientShowFormation.fxml"));
+            FXMLLoader loader = new FXMLLoader(NavigationUtils.class.getResource("/Formation/client/ShowFormation.fxml"));
             Scene scene = new Scene(loader.load());
 
             ShowFormationController controller = loader.getController();
@@ -212,22 +207,6 @@ public class IndexFormationController {
         });
     }
 
-    @FXML
-    private void goToAdd(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Formation/AddFormation.fxml"));
-            Parent root = loader.load();
-
-            Stage stage = new Stage();
-            stage.setTitle("Add New Formation");
-            stage.setScene(new Scene(root));
-            stage.showAndWait();
-
-            loadFormations(); // Reload all formations after add
-        } catch (IOException e) {
-            showAlert("Error", "Could not load the add form", Alert.AlertType.ERROR);
-        }
-    }
 
     private void showAlert(String title, String message, Alert.AlertType type) {
         Alert alert = new Alert(type);

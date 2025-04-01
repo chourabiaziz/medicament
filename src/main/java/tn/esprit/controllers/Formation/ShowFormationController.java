@@ -59,14 +59,15 @@ public class ShowFormationController implements Initializable {
     }
     private ImageView loadQuizImage(String imageName) {
         try {
-            // Construct the path to the image file
             Path imagePath = Paths.get("src/main/resources/quiz_images", imageName);
-
-            // Check if the file exists at the constructed path
             if (Files.exists(imagePath)) {
-                // Create an ImageView with the image
                 Image image = new Image(imagePath.toUri().toString());
-                return new ImageView(image);
+                ImageView imageView = new ImageView(image);
+                imageView.setFitWidth(700); // Set desired width
+                imageView.setFitHeight(300); // Set desired height
+                imageView.setPreserveRatio(true); // Preserve aspect ratio
+                imageView.setSmooth(true); // Enable smooth scaling
+                return imageView;
             } else {
                 System.err.println("Image file not found: " + imagePath.toString());
                 return null;
@@ -76,6 +77,7 @@ public class ShowFormationController implements Initializable {
             return null;
         }
     }
+
 
     private void loadQuizzes() {
         quizContainer.getChildren().clear();
@@ -95,6 +97,7 @@ public class ShowFormationController implements Initializable {
 
         // Image Container
         StackPane imageContainer = new StackPane();
+
         imageContainer.setPrefHeight(150);
         imageContainer.setStyle("-fx-background-color: #f0f0f0; -fx-border-radius: 3;");
 

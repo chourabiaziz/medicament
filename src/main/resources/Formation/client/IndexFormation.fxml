@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Pagination?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane style="-fx-background-color: #f5f7fa;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.Formation.client.IndexFormationController">
+
+    <top>
+        <HBox alignment="CENTER" style="-fx-background-color: #4a6baf; -fx-padding: 15;">
+            <Label style="-fx-text-fill: white; -fx-font-size: 20; -fx-font-weight: bold;" text="Liste des Formations" />
+            <Region HBox.hgrow="ALWAYS" />
+        </HBox>
+    </top>
+
+    <center>
+        <VBox spacing="10" style="-fx-padding: 15;">
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <TextField fx:id="searchField" promptText="Search formations..." style="-fx-pref-width: 300;" />
+                <Button onAction="#handleSearch" style="-fx-background-color: #4a6baf; -fx-text-fill: white;" text="Search" />
+                <Region HBox.hgrow="ALWAYS" />
+            </HBox>
+
+            <!-- GridPane for cards -->
+            <ScrollPane fitToWidth="true" style="-fx-background-color: transparent;">
+                <GridPane fx:id="formationGridContainer" hgap="20" style="-fx-padding: 10;" vgap="20">
+                    <columnConstraints>
+                        <ColumnConstraints percentWidth="33" />
+                        <ColumnConstraints percentWidth="33" />
+                        <ColumnConstraints percentWidth="33" />
+                    </columnConstraints>
+                </GridPane>
+            </ScrollPane>
+
+            <!-- Pagination control -->
+            <Pagination fx:id="pagination" style="-fx-alignment: center; -fx-padding: 10;" />
+        </VBox>
+    </center>
+
+    <bottom>
+        <HBox alignment="CENTER" style="-fx-background-color: #e9e9e9; -fx-padding: 10;">
+            <Label style="-fx-text-fill: #666;" text="© 2025 Formation Management System" />
+        </HBox>
+    </bottom>
+</BorderPane>
